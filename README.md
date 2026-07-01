@@ -11,7 +11,7 @@
   <p align="center">
     <a href="mailto:thetrapkinzofafrica@gmail.com"><img src="https://img.shields.io/badge/Email-00e6ff?style=for-the-badge&logo=gmail&logoColor=black" alt="Gmail Badge"/></a>
     <a href="https://simplefi.com"><img src="https://img.shields.io/badge/Website-BD00FF?style=for-the-badge&logo=firefox&logoColor=white" alt="Website Badge"/></a>
-    <a href="https://linkedin.com/in/tu-perfil"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>
+    <a href="https://www.linkedin.com/in/tranquilino-mba-ncogo-andeme-571a52417"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>
   </p>
 </div>
 
