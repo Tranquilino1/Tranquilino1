@@ -9,7 +9,7 @@
   </p>
 
   <p align="center">
-    <a href="mailto:tu-correo@example.com"><img src="https://img.shields.io/badge/Email-00e6ff?style=for-the-badge&logo=gmail&logoColor=black" alt="Gmail Badge"/></a>
+    <a href="mailto:thetrapkinzofafrica@gmail.com"><img src="https://img.shields.io/badge/Email-00e6ff?style=for-the-badge&logo=gmail&logoColor=black" alt="Gmail Badge"/></a>
     <a href="https://simplefi.com"><img src="https://img.shields.io/badge/Website-BD00FF?style=for-the-badge&logo=firefox&logoColor=white" alt="Website Badge"/></a>
     <a href="https://linkedin.com/in/tu-perfil"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/></a>
   </p>
@@ -18,7 +18,7 @@
 ---
 
 ### 👤 Perfil Profesional
-Soy **Desarrollador Full-Stack y Técnico de Soporte TI**, apasionado por la convergencia entre el desarrollo de software moderno, la ingeniería de redes y la inteligencia artificial. Me especializo en la construcción de servicios backend robustos, automatizaciones de procesos con IA y arquitecturas de red eficientes y seguras. Mi enfoque combina la resolución práctica de incidencias de infraestructura con la ingeniería de sistemas escalables.
+Soy **Desarrollador Full-Stack y Técnico de Soporte TI**, apasionado por la convergencia entre el desarrollo de software moderno, la ingeniería de redes y la inteligencia artificial. Me especializo en la construcción de servicios backend robustos, automatizaciones de procesos con IA y arquitecturas de red eficientes y seguras. Mi enfoque combina la resolución práctica de incidencias de infraestructura con la ingeniería de sistemas scalables.
 
 * 🌍 Basado en **Guinea Ecuatorial** 🇬🇶
 * 🎓 Egresado y colaborador activo de la comunidad tecnológica de la **AAUCA** (Universidad Afro-Americana de África Central)
@@ -139,25 +139,13 @@ Soy **Desarrollador Full-Stack y Técnico de Soporte TI**, apasionado por la con
 
 ---
 
+### 🗓️ Actividad Reciente en GitHub
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
+
+---
+
 ### 🎵 Personalidad & Hobbies
 * 🎚️ **Producción de Música Urbana**: Cuando no estoy programando o resolviendo problemas de infraestructura, me encanta producir instrumentales y experimentar con mezcla de audio digital.
 * 🤖 **Automatización con IA**: Integrar agentes inteligentes para automatizar tareas repetitivas de TI y administración diaria.
 * 🎧 **Música**: Fanático del sonido urbano y los ritmos sintéticos modernos.
-
----
-
-### ⚙️ Automatización en tu Perfil (Guía de GitHub Actions)
-
-Puedes hacer que este perfil muestre datos dinámicos como tu música escuchada o actualizaciones. Sigue esta guía rápida:
-
-#### 🟢 Mostrar música de Spotify
-1. Configura el proyecto [spotify-github-profile](https://github.com/kittinan/spotify-github-profile).
-2. Sigue las instrucciones para autorizar a Spotify y añade las credenciales a los **Secrets** de tu repositorio.
-3. Inserta el siguiente código de imagen en este archivo para mostrar lo que estás escuchando en tiempo real:
-   ```html
-   <!-- <a href="https://spotify-github-profile.herokuapp.com/api/view?uid=TU_UID"><img src="https://spotify-github-profile.herokuapp.com/api/run?uid=TU_UID" alt="Spotify" /></a> -->
-   ```
-
-#### 🟢 Mostrar Actividad Reciente de GitHub
-1. Crea un archivo en tu repositorio de perfil en la ruta `.github/workflows/github-active.yml`.
-2. Añade este flujo de trabajo para actualizar automáticamente tu README con tus últimos commits y pull requests utilizando la acción `jamesgeorge007/github-activity-readme`.
