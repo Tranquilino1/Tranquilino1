@@ -71,11 +71,11 @@ Soy **Ingeniero de Computadores & Sistemas**, especializado en la arquitectura d
 ### 📊 Telemetría de Contribuciones (Cyberpunk Theme)
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Tranquilino1&show_icons=true&theme=tokyonight&border_radius=10&bg_color=070a13&title_color=00e6ff&icon_color=BD00FF&text_color=8b9bb4&border_color=00e6ff" alt="GitHub Stats" width="415" />
+  <img src="https://github-stats-extended.vercel.app/api?username=Tranquilino1&show_icons=true&theme=tokyonight&border_radius=10&bg_color=070a13&title_color=00e6ff&icon_color=BD00FF&text_color=8b9bb4&border_color=00e6ff" alt="GitHub Stats" width="415" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=Tranquilino1&theme=tokyonight&border_radius=10&background=070a13&ring=00e6ff&fire=BD00FF&currStreakNum=00e6ff&sideBorder=00e6ff" alt="GitHub Streak" width="415" />
 </p>
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tranquilino1&layout=compact&theme=tokyonight&border_radius=10&bg_color=070a13&title_color=00e6ff&text_color=8b9bb4&border_color=00e6ff" alt="Top Languages" width="370" />
+  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=Tranquilino1&layout=compact&theme=tokyonight&border_radius=10&bg_color=070a13&title_color=00e6ff&text_color=8b9bb4&border_color=00e6ff" alt="Top Languages" width="370" />
 </p>
 
 ---
