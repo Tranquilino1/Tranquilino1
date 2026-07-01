@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" height="200" style="background-color: #070a13; border-radius: 12px; border: 2px solid #00e6ff;">
+  <defs>
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e6ff" />
+      <stop offset="100%" stop-color="#bd00ff" />
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes pulse {
+      0% { opacity: 0.7; fill: #00e6ff; filter: drop-shadow(0 0 2px #00e6ff); }
+      50% { opacity: 1; fill: #bd00ff; filter: drop-shadow(0 0 8px #bd00ff); }
+      100% { opacity: 0.7; fill: #00e6ff; filter: drop-shadow(0 0 2px #00e6ff); }
+    }
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; filter: drop-shadow(0 0 4px #00e6ff); }
+      20%, 24%, 55% { opacity: 0.3; filter: none; }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -40; }
+    }
+    .neon-text {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-weight: 900;
+      animation: pulse 3s infinite alternate;
+    }
+    .sub-text {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-weight: bold;
+      animation: flicker 4s infinite;
+    }
+    .grid-line {
+      stroke: #121929;
+      stroke-width: 1;
+    }
+    .circuit-line {
+      stroke: url(#cyber-grad);
+      stroke-width: 1.5;
+      stroke-dasharray: 8 4;
+      animation: dash 2s linear infinite;
+    }
+    .node {
+      fill: #39ff14;
+      animation: flicker 2s infinite alternate;
+    }
+  </style>
+  <!-- Background Tech Grid -->
+  <line x1="0" y1="40" x2="800" y2="40" class="grid-line"/>
+  <line x1="0" y1="80" x2="800" y2="80" class="grid-line"/>
+  <line x1="0" y1="120" x2="800" y2="120" class="grid-line"/>
+  <line x1="0" y1="160" x2="800" y2="160" class="grid-line"/>
+  <line x1="150" y1="0" x2="150" y2="200" class="grid-line"/>
+  <line x1="300" y1="0" x2="300" y2="200" class="grid-line"/>
+  <line x1="450" y1="0" x2="450" y2="200" class="grid-line"/>
+  <line x1="600" y1="0" x2="600" y2="200" class="grid-line"/>
+  
+  <!-- Cyber Circuits -->
+  <path d="M 50,40 L 150,40 L 200,80 L 400,80" fill="none" class="circuit-line"/>
+  <path d="M 750,160 L 600,160 L 550,120 L 450,120" fill="none" class="circuit-line" style="animation-delay: 1s;"/>
+  
+  <!-- Nodes -->
+  <circle cx="200" cy="80" r="4" class="node"/>
+  <circle cx="550" cy="120" r="4" class="node" style="animation-delay: 0.7s;"/>
+  <circle cx="400" cy="80" r="3" fill="#00e6ff"/>
+  <circle cx="450" cy="120" r="3" fill="#bd00ff"/>
+  
+  <!-- Typography -->
+  <text x="50%" y="90" dominant-baseline="middle" text-anchor="middle" font-size="48" class="neon-text">TNB ALIENBOY</text>
+  <text x="50%" y="140" dominant-baseline="middle" text-anchor="middle" font-size="16" class="sub-text" fill="#00e6ff">> INGENIERÍA DE COMPUTADORES &amp; SISTEMAS</text>
+</svg>
