@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleFi - AI Automation Startup & Portfolio</title>
+  <meta name="description" content="SimpleFi - Agencia de Automatización con Agentes de Inteligencia Artificial. Desarrollado por Tranquilino Mba (TNB Alienboy).">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-dark: #070a13;
+      --bg-card: rgba(15, 20, 31, 0.65);
+      --border-color: rgba(0, 230, 255, 0.25);
+      --primary: #00e6ff;
+      --secondary: #bd00ff;
+      --success: #39ff14;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-outfit: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --glow-cyan: 0 0 15px rgba(0, 230, 255, 0.4);
+      --glow-purple: 0 0 15px rgba(189, 0, 255, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-outfit);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Background Cyber Grid */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: 
+        linear-gradient(rgba(18, 25, 41, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 25, 41, 0.3) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -10;
+      pointer-events: none;
+    }
+
+    /* Glow overlays */
+    .blur-overlay {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: var(--primary);
+      filter: blur(150px);
+      opacity: 0.15;
+      z-index: -9;
+      pointer-events: none;
+    }
+    .blur-overlay-1 { top: 10%; left: 10%; }
+    .blur-overlay-2 { bottom: 20%; right: 10%; background: var(--secondary); }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(7, 10, 19, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 24px;
+      color: var(--primary);
+      text-shadow: var(--glow-cyan);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo span {
+      color: var(--secondary);
+      text-shadow: var(--glow-purple);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+      font-size: 16px;
+    }
+    nav a:hover {
+      color: var(--primary);
+      text-shadow: var(--glow-cyan);
+    }
+    .btn-contact {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: var(--glow-cyan);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 230, 255, 0.6);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 230, 255, 0.1);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      font-family: var(--font-mono);
+    }
+    .hero-title {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .hero-title span {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+    }
+    .btn-main {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #000;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: var(--glow-cyan);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 230, 255, 0.7);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-secondary:hover {
+      background: rgba(0, 230, 255, 0.1);
+      box-shadow: var(--glow-cyan);
+    }
+
+    /* Animated Tech Node Hero Graphic */
+    .hero-graphic {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hex-glowing {
+      width: 320px;
+      height: 320px;
+      border: 2px solid var(--primary);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation: morphing 8s infinite alternate ease-in-out;
+      position: relative;
+      background: radial-gradient(circle, rgba(189, 0, 255, 0.1) 0%, transparent 70%);
+      box-shadow: var(--glow-cyan);
+    }
+    .hex-glowing::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--secondary);
+      border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+      animation: morphing 12s infinite alternate-reverse ease-in-out;
+      box-shadow: var(--glow-purple);
+    }
+    .hero-brain {
+      position: absolute;
+      font-size: 72px;
+      color: var(--primary);
+      text-shadow: var(--glow-cyan);
+      animation: float 4s infinite alternate ease-in-out;
+    }
+
+    @keyframes morphing {
+      0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      50% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+      100% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+    }
+    @keyframes float {
+      0% { transform: translateY(-10px); }
+      100% { transform: translateY(10px); }
+    }
+
+    /* Section Styles */
+    section {
+      padding: 120px 0;
+      border-bottom: 1px solid rgba(18, 25, 41, 0.5);
+    }
+    .section-title {
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .section-title span {
+      color: var(--primary);
+      text-shadow: var(--glow-cyan);
+    }
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 64px;
+      font-family: var(--font-mono);
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 32px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: var(--glow-cyan);
+    }
+    .service-card:hover::before {
+      opacity: 1;
+    }
+    .service-icon {
+      font-size: 36px;
+      color: var(--primary);
+      margin-bottom: 24px;
+      text-shadow: var(--glow-cyan);
+    }
+    .service-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .service-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Portfolio Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 32px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--secondary);
+      box-shadow: var(--glow-purple);
+    }
+    .project-info {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .project-badge {
+      align-self: flex-start;
+      background: rgba(189, 0, 255, 0.15);
+      border: 1px solid var(--secondary);
+      color: #df80ff;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .project-info h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .project-info p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .project-tag {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: var(--font-mono);
+    }
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+    }
+    .project-link:hover {
+      color: var(--secondary);
+    }
+
+    /* Live Interactive Terminal */
+    .terminal-container {
+      background: #020408;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      font-family: var(--font-mono);
+      margin-top: 48px;
+    }
+    .terminal-header {
+      background: #0f141f;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 230, 255, 0.15);
+    }
+    .terminal-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    .t-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .t-close { background: #ef4444; }
+    .t-min { background: #f59e0b; }
+    .t-max { background: #10b981; }
+    .terminal-title {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .terminal-body {
+      padding: 24px;
+      height: 380px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .terminal-line {
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    .terminal-prompt {
+      color: var(--success);
+    }
+    .terminal-output {
+      color: var(--text-muted);
+      white-space: pre-wrap;
+    }
+    .terminal-input-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .terminal-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      flex-grow: 1;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 99;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+    }
+
+    /* Footer */
+    footer {
+      background: #020408;
+      padding: 60px 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    .social-links {
+      display: flex;
+      gap: 24px;
+    }
+    .social-link {
+      font-size: 24px;
+      color: var(--text-muted);
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-link:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .copyright {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Responsive Grid */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 64px;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-graphic {
+        order: -1;
+      }
+      nav ul {
+        display: none; /* simple responsive fallback */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blur-overlay blur-overlay-1"></div>
+  <div class="blur-overlay blur-overlay-2"></div>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/240222076562" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo">TNB<span>.Alienboy</span></a>
+      <nav>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#consola">Consola</a></li>
+          <li><a href="https://github.com/Tranquilino1" target="_blank">GitHub</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/240222076562" class="btn-contact" target="_blank">Contactar</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag"><i class="fa-solid fa-bolt"></i> SimpleFi - AI Agency Active</div>
+        <h1 class="hero-title">Automatización de Procesos con <span>Agentes de IA</span></h1>
+        <p class="hero-desc">Soy Tranquilino Mba (TNB Alienboy), Ingeniero de Computadores & Sistemas. Diseño agentes inteligentes autónomos, arquitecturas de backend robustas e infraestructuras de red seguras para escalar tu empresa al siguiente nivel.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/240222076562" class="btn-main" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp Directo
+          </a>
+          <a href="#servicios" class="btn-secondary">Mis Servicios <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <div class="hex-glowing"></div>
+        <i class="fa-solid fa-microchip hero-brain"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <h2 class="section-title">Nuestras <span>Soluciones Tecnológicas</span></h2>
+      <p class="section-subtitle">> Servicios de Ingeniería y Consultoría de Automatización</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fa-solid fa-robot service-icon"></i>
+          <h3>Agentes de IA & Automatización</h3>
+          <p>Modelado e implementación de agentes inteligentes de toma de decisiones autónomas, integración con modelos de lenguaje de gran escala (Gemini, Claude, GPT, Llama) y automatización de flujos de trabajo administrativos.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-code service-icon"></i>
+          <h3>Desarrollo Backend & Móvil</h3>
+          <p>Arquitectura de servicios escalables empleando Java Spring Boot, Kotlin, Python/Django y bases de datos transaccionales de alta concurrencia. Aplicaciones móviles nativas con Android SDK y multiplataforma con Flutter.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-network-wired service-icon"></i>
+          <h3>Soporte TI & Ingeniería de Redes</h3>
+          <p>Configuración avanzada de routers y firewalls MikroTik, simulación avanzada de topologías complejas con GNS3 y Packet Tracer, virtualización robusta y administración experta de servidores Linux corporativos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <div class="container">
+      <h2 class="section-title">Proyectos <span>Insignia</span></h2>
+      <p class="section-subtitle">> Resultados de alto impacto técnico y académico</p>
+      <div class="projects-grid">
+        <!-- PROYECTO 1 -->
+        <div class="project-card">
+          <div class="project-info">
+            <div class="project-badge">1er puesto nacional 🏆</div>
+            <h3>Agrotec Guinea (Nfomsi)</h3>
+            <p>Plataforma inteligente de diagnóstico agrícola. Utiliza modelos de IA en la nube y visión artificial para analizar fotografías tomadas en campo, detectar plagas botánicas de forma automatizada y recomendar tratamientos.</p>
+            <div class="project-tags">
+              <span class="project-tag">Groq API</span>
+              <span class="project-tag">Gemini</span>
+              <span class="project-tag">Django</span>
+              <span class="project-tag">Android</span>
+            </div>
+            <a href="https://github.com/Tranquilino1/AGROTEC-GUINEA" class="project-link" target="_blank">Código Fuente <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- PROYECTO 2 -->
+        <div class="project-card">
+          <div class="project-info">
+            <div class="project-badge">Baja latencia 🛰️</div>
+            <h3>INTELIJGPS</h3>
+            <p>Motor de geolocalización avanzada y tracking vehicular en tiempo real. Soporta procesamiento masivo de coordenadas geográficas concurrentes con persistencia optimizada y alertas mediante sockets persistentes.</p>
+            <div class="project-tags">
+              <span class="project-tag">Spring Boot</span>
+              <span class="project-tag">WebSockets</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">Maven</span>
+            </div>
+            <a href="https://github.com/Tranquilino1/INTELIJGPS" class="project-link" target="_blank">Código Fuente <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- PROYECTO 3 -->
+        <div class="project-card">
+          <div class="project-info">
+            <div class="project-badge">Desplegado ⚡</div>
+            <h3>AAUCATools Community</h3>
+            <p>Plataforma web comunitaria desplegada en Vercel que ofrece microherramientas de inteligencia artificial para ayudar a los estudiantes a optimizar sus estudios, generar resúmenes automáticos y resolver dudas académicas.</p>
+            <div class="project-tags">
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Angular</span>
+              <span class="project-tag">Vercel</span>
+              <span class="project-tag">Serverless</span>
+            </div>
+            <a href="https://github.com/Tranquilino1/aauca-tools-community" class="project-link" target="_blank">Código Fuente <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TERMINAL -->
+  <section id="consola">
+    <div class="container">
+      <h2 class="section-title">Consola <span>Interactivas de TI</span></h2>
+      <p class="section-subtitle">> Escribe comandos para interrogar al sistema en tiempo real</p>
+      <div class="terminal-container">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <div class="t-btn t-close"></div>
+            <div class="t-btn t-min"></div>
+            <div class="t-btn t-max"></div>
+          </div>
+          <div class="terminal-title">bash - TNB.Alienboy@aauca-core</div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div class="terminal-line">
+            <span class="terminal-prompt">visitor@simplefi:~$</span>
+            <span class="terminal-output"> system_init.sh</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-output">Inicializando núcleo SimpleFi AI Agency v2.0...
++ Conexión de redes (MikroTik / GNS3): [ONLINE]
++ Soporte técnico e IA integrados: [COMPLIANT]
++ Full-Stack Core (Spring Boot / Django): [LOADED]
+
+Escribe 'help' para ver una lista de comandos disponibles.</span>
+          </div>
+        </div>
+        <div class="terminal-header" style="border-top: 1px solid rgba(0, 230, 255, 0.15); border-bottom: none;">
+          <div class="terminal-input-line">
+            <span class="terminal-prompt">visitor@simplefi:~$</span>
+            <input type="text" class="terminal-input" id="terminal-input" placeholder="Escribe un comando..." autocomplete="off">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <a href="#" class="logo">TNB<span>.Alienboy</span></a>
+      <div class="social-links">
+        <a href="https://github.com/Tranquilino1" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/tranquilino-mba-ncogo-andeme-571a52417" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:thetrapkinzofafrica@gmail.com" class="social-link"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://wa.me/240222076562" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="copyright">&copy; 2026 SimpleFi AI Agency. Desarrollado por Tranquilino Mba. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalBody = document.getElementById('terminal-body');
+
+    const commands = {
+      help: "Comandos disponibles:\n- about       : Información sobre mí y mi startup.\n- skills      : Tecnologías de software e infraestructura.\n- projects    : Lista de proyectos insignia.\n- contact     : Datos de contacto y WhatsApp.\n- clear       : Limpia la terminal.",
+      about: "Tranquilino Mba (TNB Alienboy) es un Ingeniero de Computadores & Sistemas. Fundador de SimpleFi, una startup enfocada en el diseño e implementación de agentes inteligentes de IA y flujos de automatización empresarial autónomos.",
+      skills: "Software: Java (Spring Boot), Kotlin, Python (Django), TypeScript, Angular, Android Dev.\nSistemas y Redes: Configuración MikroTik, simuladores GNS3 y Packet Tracer, virtualización y servidores Linux.\nIA: Automatizaciones agent-first e integración avanzada de modelos fundacionales (Gemini/Claude).",
+      projects: "- AGROTEC GUINEA (Nfomsi): Diagnóstico de cultivos con IA (1er puesto).\n- INTELIJGPS: Tracking vehicular de baja latencia con WebSockets.\n- AAUCATools Community: Plataforma de productividad estudiantil con IA.",
+      contact: "Email: thetrapkinzofafrica@gmail.com\nLinkedIn: linkedin.com/in/tranquilino-mba-ncogo-andeme-571a52417\nWhatsApp Directo: +240 222 076562",
+      clear: ""
+    };
+
+    terminalInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        const value = terminalInput.value.trim().toLowerCase();
+        terminalInput.value = '';
+
+        if (value) {
+          // Add echo line
+          const echoLine = document.createElement('div');
+          echoLine.className = 'terminal-line';
+          echoLine.innerHTML = `<span class="terminal-prompt">visitor@simplefi:~$</span> <span class="terminal-output">${value}</span>`;
+          terminalBody.appendChild(echoLine);
+
+          if (value === 'clear') {
+            terminalBody.innerHTML = '';
+          } else if (commands[value] !== undefined) {
+            // Add output line
+            const outputLine = document.createElement('div');
+            outputLine.className = 'terminal-line';
+            outputLine.innerHTML = `<span class="terminal-output">${commands[value].replace(/\n/g, '<br/>')}</span>`;
+            terminalBody.appendChild(outputLine);
+          } else {
+            // Error line
+            const errorLine = document.createElement('div');
+            errorLine.className = 'terminal-line';
+            errorLine.innerHTML = `<span class="terminal-output" style="color: #ef4444;">Comando no reconocido: '${value}'. Escribe 'help' para comandos disponibles.</span>`;
+            terminalBody.appendChild(errorLine);
+          }
+
+          // Auto-scroll
+          terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
