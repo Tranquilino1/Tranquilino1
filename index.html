@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SimpleFi - AI Automation Startup & Portfolio</title>
-  <meta name="description" content="SimpleFi - Agencia de Automatización con Agentes de Inteligencia Artificial. Desarrollado por Tranquilino Mba (TNB Alienboy).">
+  <title>SimpleFi-IA - AI Automation Agency & Portfolio</title>
+  <meta name="description" content="SimpleFi-IA - Agencia de Automatización con Agentes de Inteligencia Artificial. Automatizamos todo tipo de empresas (pequeñas y grandes) conectándolas con agentes de WhatsApp, recursos digitales y redes.">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
       scroll-behavior: smooth;
     }
 
-    /* Background Cyber Grid */
+    /* Background Grid */
     body::before {
       content: "";
       position: fixed;
@@ -230,7 +230,7 @@
       box-shadow: var(--glow-cyan);
     }
 
-    /* Animated Tech Node Hero Graphic */
+    /* Graphic */
     .hero-graphic {
       position: relative;
       display: flex;
@@ -425,6 +425,59 @@
       color: var(--secondary);
     }
 
+    /* Team Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+      position: relative;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--glow-cyan);
+    }
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #0f1422;
+      border: 2px solid var(--primary);
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      color: var(--primary);
+      text-shadow: var(--glow-cyan);
+    }
+    .team-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .team-role {
+      font-size: 14px;
+      font-family: var(--font-mono);
+      color: var(--secondary);
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+    .team-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
     /* Live Interactive Terminal */
     .terminal-container {
       background: #020408;
@@ -562,7 +615,7 @@
         order: -1;
       }
       nav ul {
-        display: none; /* simple responsive fallback */
+        display: none;
       }
     }
   </style>
@@ -584,8 +637,8 @@
         <ul>
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#equipo">Equipo</a></li>
           <li><a href="#consola">Consola</a></li>
-          <li><a href="https://github.com/Tranquilino1" target="_blank">GitHub</a></li>
         </ul>
       </nav>
       <a href="https://wa.me/240222076562" class="btn-contact" target="_blank">Contactar</a>
@@ -596,14 +649,14 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="hero-tag"><i class="fa-solid fa-bolt"></i> SimpleFi - AI Agency Active</div>
+        <div class="hero-tag"><i class="fa-solid fa-bolt"></i> SimpleFi-IA Agency Active</div>
         <h1 class="hero-title">Automatización de Procesos con <span>Agentes de IA</span></h1>
-        <p class="hero-desc">Soy Tranquilino Mba (TNB Alienboy), Ingeniero de Computadores & Sistemas. Diseño agentes inteligentes autónomos, arquitecturas de backend robustas e infraestructuras de red seguras para escalar tu empresa al siguiente nivel.</p>
+        <p class="hero-desc">En <b>SimpleFi-IA</b> nos especializamos en la automatización integral de sistemas y procesos digitales para cualquier tipo de empresas, desde pequeños negocios locales hasta grandes corporaciones. Desarrollamos agentes inteligentes autónomos, gestionamos sistemas de recursos y los conectamos con asistentes automáticos en WhatsApp y redes sociales.</p>
         <div class="hero-actions">
           <a href="https://wa.me/240222076562" class="btn-main" target="_blank">
             <i class="fab fa-whatsapp"></i> WhatsApp Directo
           </a>
-          <a href="#servicios" class="btn-secondary">Mis Servicios <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="#servicios" class="btn-secondary">Nuestros Servicios <i class="fa-solid fa-arrow-down"></i></a>
         </div>
       </div>
       <div class="hero-graphic">
@@ -616,23 +669,23 @@
   <!-- SERVICIOS -->
   <section id="servicios">
     <div class="container">
-      <h2 class="section-title">Nuestras <span>Soluciones Tecnológicas</span></h2>
-      <p class="section-subtitle">> Servicios de Ingeniería y Consultoría de Automatización</p>
+      <h2 class="section-title">Soluciones de <span>Automatización</span></h2>
+      <p class="section-subtitle">> Transformamos cualquier aspecto digital e infraestructura de tu negocio</p>
       <div class="services-grid">
         <div class="service-card">
           <i class="fa-solid fa-robot service-icon"></i>
-          <h3>Agentes de IA & Automatización</h3>
-          <p>Modelado e implementación de agentes inteligentes de toma de decisiones autónomas, integración con modelos de lenguaje de gran escala (Gemini, Claude, GPT, Llama) y automatización de flujos de trabajo administrativos.</p>
+          <h3>Agentes de IA & WhatsApp</h3>
+          <p>Creamos y conectamos agentes inteligentes personalizados con la API de WhatsApp Business para automatizar tu atención al cliente, captación de prospectos y gestión interna de forma conversacional las 24 horas.</p>
         </div>
         <div class="service-card">
-          <i class="fa-solid fa-code service-icon"></i>
-          <h3>Desarrollo Backend & Móvil</h3>
-          <p>Arquitectura de servicios escalables empleando Java Spring Boot, Kotlin, Python/Django y bases de datos transaccionales de alta concurrencia. Aplicaciones móviles nativas con Android SDK y multiplataforma con Flutter.</p>
+          <i class="fa-solid fa-server service-icon"></i>
+          <h3>Automatización de Recursos</h3>
+          <p>Conectamos y automatizamos todo el flujo de recursos de tu empresa, integrando bases de datos, sistemas de inventario, CRM y herramientas en la nube bajo arquitecturas seguras y centralizadas.</p>
         </div>
         <div class="service-card">
-          <i class="fa-solid fa-network-wired service-icon"></i>
-          <h3>Soporte TI & Ingeniería de Redes</h3>
-          <p>Configuración avanzada de routers y firewalls MikroTik, simulación avanzada de topologías complejas con GNS3 y Packet Tracer, virtualización robusta y administración experta de servidores Linux corporativos.</p>
+          <i class="fa-solid fa-share-nodes service-icon"></i>
+          <h3>Redes Sociales & Presencia Digital</h3>
+          <p>Automatizamos las publicaciones, flujos de respuesta y métricas en tus redes sociales. Nos encargamos de todo el espectro digital de la empresa para que puedas centrarte únicamente en escalar tus ventas.</p>
         </div>
       </div>
     </div>
@@ -641,8 +694,8 @@
   <!-- PROYECTOS -->
   <section id="proyectos">
     <div class="container">
-      <h2 class="section-title">Proyectos <span>Insignia</span></h2>
-      <p class="section-subtitle">> Resultados de alto impacto técnico y académico</p>
+      <h2 class="section-title">Casos de <span>Éxito & Proyectos</span></h2>
+      <p class="section-subtitle">> Resultados de alto impacto técnico y de optimización</p>
       <div class="projects-grid">
         <!-- PROYECTO 1 -->
         <div class="project-card">
@@ -693,11 +746,42 @@
     </div>
   </section>
 
+  <!-- EQUIPO -->
+  <section id="equipo">
+    <div class="container">
+      <h2 class="section-title">El <span>Equipo de SimpleFi-IA</span></h2>
+      <p class="section-subtitle">> 3 ingenieros fundadores especialistas en transformación tecnológica</p>
+      <div class="team-grid">
+        <!-- MIEMBRO 1 -->
+        <div class="team-card">
+          <div class="team-avatar"><i class="fa-solid fa-terminal"></i></div>
+          <h3>Tranquilino Mba</h3>
+          <div class="team-role">Chief AI Architect & Co-Founder</div>
+          <p class="team-desc">Especialista en desarrollo agent-first, arquitectura de grandes modelos lingüísticos e integración y seguridad en sistemas complejos.</p>
+        </div>
+        <!-- MIEMBRO 2 -->
+        <div class="team-card">
+          <div class="team-avatar"><i class="fa-solid fa-code"></i></div>
+          <h3>Lead Full-Stack Engineer</h3>
+          <div class="team-role">Co-Founder</div>
+          <p class="team-desc">Especialista en escalabilidad backend con Spring Boot, NodeJS y bases de datos transaccionales, y desarrollo de aplicaciones web responsivas.</p>
+        </div>
+        <!-- MIEMBRO 3 -->
+        <div class="team-card">
+          <div class="team-avatar"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>TI & Network Specialist</h3>
+          <div class="team-role">Co-Founder</div>
+          <p class="team-desc">Experto en administración de servidores Linux de alto rendimiento, enrutamiento MikroTik/Cisco y seguridad de datos empresariales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- INTERACTIVE TERMINAL -->
   <section id="consola">
     <div class="container">
-      <h2 class="section-title">Consola <span>Interactivas de TI</span></h2>
-      <p class="section-subtitle">> Escribe comandos para interrogar al sistema en tiempo real</p>
+      <h2 class="section-title">Terminal de <span>Sistemas</span></h2>
+      <p class="section-subtitle">> Interroga a nuestro núcleo ejecutor en tiempo real</p>
       <div class="terminal-container">
         <div class="terminal-header">
           <div class="terminal-buttons">
@@ -705,25 +789,26 @@
             <div class="t-btn t-min"></div>
             <div class="t-btn t-max"></div>
           </div>
-          <div class="terminal-title">bash - TNB.Alienboy@aauca-core</div>
+          <div class="terminal-title">bash - TNB.Alienboy@simplefi-ia-core</div>
         </div>
         <div class="terminal-body" id="terminal-body">
           <div class="terminal-line">
-            <span class="terminal-prompt">visitor@simplefi:~$</span>
+            <span class="terminal-prompt">visitor@simplefi-ia:~$</span>
             <span class="terminal-output"> system_init.sh</span>
           </div>
           <div class="terminal-line">
-            <span class="terminal-output">Inicializando núcleo SimpleFi AI Agency v2.0...
+            <span class="terminal-output">Inicializando núcleo SimpleFi-IA Agency v2.0...
 + Conexión de redes (MikroTik / GNS3): [ONLINE]
-+ Soporte técnico e IA integrados: [COMPLIANT]
-+ Full-Stack Core (Spring Boot / Django): [LOADED]
++ Canales digitales de WhatsApp: [CONNECTED]
++ 3 Miembros fundadores activos: [COMPLIANT]
++ Flujos de automatización para empresas: [LOADED]
 
 Escribe 'help' para ver una lista de comandos disponibles.</span>
           </div>
         </div>
         <div class="terminal-header" style="border-top: 1px solid rgba(0, 230, 255, 0.15); border-bottom: none;">
           <div class="terminal-input-line">
-            <span class="terminal-prompt">visitor@simplefi:~$</span>
+            <span class="terminal-prompt">visitor@simplefi-ia:~$</span>
             <input type="text" class="terminal-input" id="terminal-input" placeholder="Escribe un comando..." autocomplete="off">
           </div>
         </div>
@@ -741,7 +826,7 @@ Escribe 'help' para ver una lista de comandos disponibles.</span>
         <a href="mailto:thetrapkinzofafrica@gmail.com" class="social-link"><i class="fa-solid fa-envelope"></i></a>
         <a href="https://wa.me/240222076562" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <p class="copyright">&copy; 2026 SimpleFi AI Agency. Desarrollado por Tranquilino Mba. Todos los derechos reservados.</p>
+      <p class="copyright">&copy; 2026 SimpleFi-IA AI Agency. Desarrollado por Tranquilino Mba. Todos los derechos reservados.</p>
     </div>
   </footer>
 
@@ -750,9 +835,10 @@ Escribe 'help' para ver una lista de comandos disponibles.</span>
     const terminalBody = document.getElementById('terminal-body');
 
     const commands = {
-      help: "Comandos disponibles:\n- about       : Información sobre mí y mi startup.\n- skills      : Tecnologías de software e infraestructura.\n- projects    : Lista de proyectos insignia.\n- contact     : Datos de contacto y WhatsApp.\n- clear       : Limpia la terminal.",
-      about: "Tranquilino Mba (TNB Alienboy) es un Ingeniero de Computadores & Sistemas. Fundador de SimpleFi, una startup enfocada en el diseño e implementación de agentes inteligentes de IA y flujos de automatización empresarial autónomos.",
-      skills: "Software: Java (Spring Boot), Kotlin, Python (Django), TypeScript, Angular, Android Dev.\nSistemas y Redes: Configuración MikroTik, simuladores GNS3 y Packet Tracer, virtualización y servidores Linux.\nIA: Automatizaciones agent-first e integración avanzada de modelos fundacionales (Gemini/Claude).",
+      help: "Comandos disponibles:\n- about       : Información sobre nuestra startup SimpleFi-IA.\n- team        : Conoce a los 3 miembros del equipo fundador.\n- skills      : Tecnologías de software, IA e infraestructura.\n- projects    : Lista de proyectos insignia.\n- contact     : Contacto y WhatsApp Directo.\n- clear       : Limpia la terminal.",
+      about: "SimpleFi-IA es una startup de Inteligencia Artificial y Soporte de TI de Guinea Ecuatorial. Nos especializamos en la automatización digital total de empresas (pequeñas y grandes) integrando agentes inteligentes, automatizaciones de recursos y conectores automatizados en WhatsApp y redes sociales.",
+      team: "Equipo SimpleFi-IA (3 Miembros Fundadores):\n1. Tranquilino Mba (TNB Alienboy) - Chief AI Architect\n2. Lead Full-Stack Engineer - Backend & Web Scalability\n3. TI & Network Specialist - Servidores, MikroTik & Ciberseguridad.",
+      skills: "Software: Java Spring Boot, Kotlin, Python/Django, TypeScript, Angular, Android Dev.\nInfraestructura: Enrutamiento MikroTik/Cisco, simulación GNS3, Linux Servers y Ciberseguridad.\nIA: Automatizaciones agent-first, LangChain e integración avanzada de modelos fundacionales (Gemini/Claude).",
       projects: "- AGROTEC GUINEA (Nfomsi): Diagnóstico de cultivos con IA (1er puesto).\n- INTELIJGPS: Tracking vehicular de baja latencia con WebSockets.\n- AAUCATools Community: Plataforma de productividad estudiantil con IA.",
       contact: "Email: thetrapkinzofafrica@gmail.com\nLinkedIn: linkedin.com/in/tranquilino-mba-ncogo-andeme-571a52417\nWhatsApp Directo: +240 222 076562",
       clear: ""
@@ -767,7 +853,7 @@ Escribe 'help' para ver una lista de comandos disponibles.</span>
           // Add echo line
           const echoLine = document.createElement('div');
           echoLine.className = 'terminal-line';
-          echoLine.innerHTML = `<span class="terminal-prompt">visitor@simplefi:~$</span> <span class="terminal-output">${value}</span>`;
+          echoLine.innerHTML = `<span class="terminal-prompt">visitor@simplefi-ia:~$</span> <span class="terminal-output">${value}</span>`;
           terminalBody.appendChild(echoLine);
 
           if (value === 'clear') {
